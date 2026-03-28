@@ -1,0 +1,5 @@
+{
+  "name": "Danial AI Fitness",
+  "description": "Premium AI-powered fitness coaching, workout generators, and life-in-weeks visualization.",
+  "requestFramePermissions": ["geolocation"]
+}

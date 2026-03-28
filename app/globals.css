@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #8b5cf6;
+  --color-brand-teal: #14b8a6;
+  --color-dark-bg: #0a0a0a;
+  --color-dark-card: #151515;
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-brand-teal);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-brand-purple);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@media (max-width: 768px) {
+  .custom-cursor, .custom-cursor-dot {
+    display: none;
+  }
+}
+
+/* Life in Weeks Grid */
+.weeks-grid {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  gap: 2px;
+}
+
+.week-box {
+  aspect-ratio: 1/1;
+  background-color: #222;
+  border-radius: 1px;
+  transition: all 0.2s ease;
+}
+
+.week-box.lived {
+  background-color: var(--color-brand-purple);
+}
+
+.week-box.future {
+  background-color: #1a1a1a;
+}
+
+.week-box.healthy-gain {
+  background-color: var(--color-brand-teal);
+  box-shadow: 0 0 5px var(--color-brand-teal);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
